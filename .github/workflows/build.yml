@@ -13,6 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install required packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential help2man
+
       - name: Download and Run Script
         run: |
           curl -o rebuild-esp32s3-linux.sh https://gist.githubusercontent.com/jcmvbkbc/316e6da728021c8ff670a24e674a35e6/raw/rebuild-esp32s3-linux.sh
