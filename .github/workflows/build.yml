@@ -1,0 +1,20 @@
+name: Download and Run Script
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Download and Run Script
+        run: |
+          curl -o rebuild-esp32s3-linux.sh https://gist.githubusercontent.com/jcmvbkbc/316e6da728021c8ff670a24e674a35e6/raw/rebuild-esp32s3-linux.sh
+          chmod +x rebuild-esp32s3-linux.sh
+          ./rebuild-esp32s3-linux.sh
